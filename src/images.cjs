@@ -7,8 +7,8 @@ const jobs = [
   ['cherry/cans.png', [['cans.webp', 1400, 875]]],
   ['indoor.png', [['indoor.webp', 900, 900]]],
   ['outdoor.png', [['outdoor.webp', 800, 800]]],
-  ['cherry/samaran-crop.png', [['samaran.webp', 400, 400]]],
-  ['cherry/tipan-crop.png', [['tipan.webp', 400, 400]]],
+  ['cherry/samaran-crop.png', [['samaran.webp', 700, 700]]],
+  ['cherry/tipan-crop.png', [['tipan.webp', 700, 700]]],
 ];
 (async () => {
   for (const [src, outs] of jobs) {

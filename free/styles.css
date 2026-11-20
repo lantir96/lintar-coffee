@@ -24,7 +24,7 @@ body {
   color: var(--ink);
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
@@ -125,25 +125,54 @@ p { margin: 0; }
 .marquee-track i { color: var(--clay); font-style: normal; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
-/* Signature */
-.signature {
-  max-width: var(--max); margin: 0 auto; padding: clamp(4.5rem, 10vw, 8rem) var(--pad);
-  display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center;
+/* Spinning menu ring */
+.menu-ring { position: relative; background: var(--ink); color: var(--cream); overflow: clip; }
+.ring-sticky { padding: clamp(4rem, 9vw, 7rem) var(--pad); }
+.ring-ghost {
+  position: absolute; top: 50%; left: 0; white-space: nowrap; pointer-events: none;
+  font-size: clamp(6rem, 22vw, 20rem); font-weight: 800; letter-spacing: -0.05em; line-height: 1;
+  color: transparent; -webkit-text-stroke: 1px rgba(246,243,238,0.1); transform: translate(-10%, -50%);
 }
-.sig-media { border-radius: 18px; overflow: hidden; aspect-ratio: 16 / 11; }
-.sig-media img { width: 100%; height: 100%; object-fit: cover; }
-.sig-copy h2 { margin-bottom: 2rem; }
-.sig-items { display: grid; gap: 1rem; }
-.sig-item {
-  display: grid; grid-template-columns: 96px 1fr; gap: 1rem; align-items: center;
-  padding: 0.75rem; border: 1px solid var(--line); border-radius: 14px; background: #fff;
-  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+.ring-head { position: relative; z-index: 2; max-width: var(--max); margin: 0 auto 2rem; }
+.ring-head .eyebrow { color: #f0566b; }
+.ring-head em { color: #f0566b; }
+.ring-stage { position: relative; }
+.ring { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 0.5rem; scrollbar-width: none; }
+.ring::-webkit-scrollbar { display: none; }
+.ring-card {
+  flex: none; width: var(--card-w, clamp(210px, 22vw, 290px)); scroll-snap-align: start;
+  background: #1f1f1f; border: 1px solid rgba(246,243,238,0.1); border-radius: 18px; overflow: hidden;
 }
-.sig-item:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -22px rgba(20,20,20,0.45); }
-.sig-item img { width: 96px; height: 96px; object-fit: cover; border-radius: 10px; }
-.sig-item h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
-.sig-item p { color: var(--muted); font-size: 0.95rem; }
-.price { color: var(--clay); font-weight: 800; }
+.ring-img { aspect-ratio: 1; overflow: hidden; }
+.ring-img img { width: 100%; height: 100%; object-fit: cover; }
+.ring-body { padding: 0.9rem 1.1rem 1.1rem; }
+.ring-body small { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(246,243,238,0.55); }
+.ring-body h3 { font-size: 1.2rem; margin: 0.25rem 0 0.2rem; letter-spacing: -0.01em; }
+.ring-body p { color: #f0566b; font-weight: 800; }
+.ring-count { display: none; }
+
+/* 3D mode, switched on by main.js */
+.menu-ring.is-3d { height: 340vh; }
+.is-3d .ring-sticky { position: sticky; top: 0; height: 100svh; display: flex; flex-direction: column; justify-content: center; padding-top: 5rem; padding-bottom: 2rem; }
+.is-3d .ring-head { margin-bottom: 0; text-align: center; }
+.is-3d .ring-stage { flex: 1; perspective: 1400px; display: grid; place-items: center; min-height: 0; }
+.is-3d .ring {
+  display: block; overflow: visible; position: relative; padding: 0;
+  width: var(--card-w); height: var(--card-h, 380px); transform-style: preserve-3d;
+  transform: rotateX(-6deg) rotateY(var(--ry, 0deg)); will-change: transform;
+}
+.is-3d .ring-card {
+  position: absolute; inset: 0 auto auto 0; width: var(--card-w);
+  transform: rotateY(calc(var(--i) * 60deg)) translateZ(var(--r, 420px));
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  transition: opacity 0.4s, filter 0.4s, border-color 0.4s;
+  opacity: 0.45; filter: saturate(0.6) brightness(0.75);
+}
+.is-3d .ring-card.is-front { opacity: 1; filter: none; border-color: rgba(240,86,107,0.6); box-shadow: 0 30px 60px -25px rgba(179,18,46,0.55); }
+.is-3d .ring-count {
+  display: block; text-align: center; font-size: 0.9rem; letter-spacing: 0.2em; color: rgba(246,243,238,0.6); margin-top: 1rem; font-variant-numeric: tabular-nums;
+}
+.is-3d .ring-count b { color: var(--cream); font-size: 1.6rem; letter-spacing: 0; }
 
 /* Menu */
 .menu { max-width: var(--max); margin: 0 auto; padding: clamp(3rem, 7vw, 5rem) var(--pad) clamp(4rem, 8vw, 6rem); }
@@ -178,15 +207,6 @@ p { margin: 0; }
 .menu-panel.is-entering .menu-list li { animation: itemIn 0.5s var(--ease) both; animation-delay: calc(var(--i, 0) * 18ms); }
 @keyframes itemIn { from { opacity: 0; transform: translateY(10px); } }
 .menu-empty { padding: 2rem 0; color: var(--muted); }
-
-/* Bowls */
-.bowls { overflow: hidden; padding-bottom: clamp(4rem, 8vw, 6rem); }
-.bowls-track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; padding: 0 var(--pad); max-width: 1500px; margin: 0 auto; }
-.bowls figure { margin: 0; border-radius: 16px; overflow: hidden; background: #fff; border: 1px solid var(--line); }
-.bowls img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform 0.8s var(--ease); }
-.bowls figure:hover img { transform: scale(1.06); }
-.bowls figcaption { display: flex; justify-content: space-between; gap: 0.5rem; padding: 0.8rem 1rem; font-weight: 600; }
-.bowls figcaption b { color: var(--clay); }
 
 /* About */
 .about {
@@ -259,12 +279,9 @@ p { margin: 0; }
 
 /* Phones */
 @media (max-width: 900px) {
-  .signature, .about { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr; }
   .about-copy { margin-left: 0; }
   .about-photos { width: 100%; margin: 0 auto; height: clamp(360px, 100vw, 560px); }
-  .bowls-track { grid-template-columns: repeat(4, 72%); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 0.5rem; scrollbar-width: none; }
-  .bowls-track::-webkit-scrollbar { display: none; }
-  .bowls figure { scroll-snap-align: start; }
   .contact-list { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {

@@ -144,6 +144,60 @@
     if (search) search.addEventListener('input', runSearch);
   }
 
+  // Spinning menu ring: scroll turns it card by card; pointer tilts it.
+  // Without JS or with reduced motion it stays a plain swipeable row of cards.
+  const ringSec = $('[data-ring]');
+  if (ringSec && !reduce) {
+    const track = $('[data-ring-track]', ringSec);
+    const cards = $$('.ring-card', track);
+    const idx = $('[data-ring-index]', ringSec);
+    const ghost = $('.ring-ghost', ringSec);
+    const N = cards.length;
+    const step = 360 / N;
+    let tilt = 0;
+    let p = 0;
+    ringSec.classList.add('is-3d');
+
+    const size = () => {
+      const phone = window.innerWidth < 760;
+      const w = phone ? Math.min(window.innerWidth * 0.56, 240) : Math.min(Math.max(window.innerWidth * 0.2, 220), 280);
+      ringSec.style.setProperty('--card-w', `${Math.round(w)}px`);
+      const h = cards.reduce((m, c) => Math.max(m, c.offsetHeight), 0);
+      track.style.setProperty('--card-h', `${h}px`);
+      track.style.setProperty('--r', `${Math.round(w / 2 / Math.tan(Math.PI / N) + (phone ? 24 : 70))}px`);
+    };
+
+    const paint = () => {
+      const r = ringSec.getBoundingClientRect();
+      const span = r.height - window.innerHeight;
+      p = Math.min(1, Math.max(0, -r.top / (span || 1)));
+      // Each card holds facing front for a moment, then the ring eases to the next one
+      const t = p * (N - 1);
+      const k = Math.min(Math.floor(t), N - 2);
+      const f = Math.min(1, Math.max(0, (t - k - 0.3) / 0.4));
+      const eased = k + f * f * (3 - 2 * f);
+      track.style.setProperty('--ry', `${(-eased * step + tilt).toFixed(2)}deg`);
+      const front = Math.round(eased);
+      cards.forEach((c, i) => c.classList.toggle('is-front', i === front));
+      const label = String(front + 1).padStart(2, '0');
+      if (idx.textContent !== label) idx.textContent = label;
+      if (ghost) ghost.style.transform = `translate(${(-10 - p * 30).toFixed(2)}%, -50%)`;
+    };
+
+    let ringTick = false;
+    const onRing = () => { if (!ringTick) { ringTick = true; requestAnimationFrame(() => { paint(); ringTick = false; }); } };
+    window.addEventListener('scroll', onRing, { passive: true });
+    window.addEventListener('resize', () => { size(); paint(); });
+    // Images change card height once loaded
+    $$('img', track).forEach((img) => img.addEventListener('load', () => { size(); paint(); }, { once: true }));
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      $('.ring-stage', ringSec).addEventListener('pointermove', (e) => { tilt = (e.clientX / window.innerWidth - 0.5) * -14; onRing(); });
+      $('.ring-stage', ringSec).addEventListener('pointerleave', () => { tilt = 0; onRing(); });
+    }
+    size();
+    paint();
+  }
+
   // Magnetic button (pointer devices only)
   if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     $$('.magnetic').forEach((el) => {
