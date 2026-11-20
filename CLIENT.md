@@ -9,7 +9,7 @@ The brief and every design decision for this client. Work through `CHECKLIST.md`
 - **What they sell:** Demo brand for Lintar (not a real client). Same menu and prices as 38 Coffee Samaran (101 items), rebranded.
 - **Where (area):** Mojokerto (demo; no real address)
 - **Owner, and what they care about:** Lintar. Wants a different brand on the same data, Free tier, plus some scroll effects.
-- **Feel:** warm, confident, night-cafe; espresso #1E1410, cream #F4ECE0, terracotta #C65A2E; Bricolage Grotesque + Instrument Serif
+- **Feel:** bold, confident, night-cafe; cherry palette chosen by Lintar 2026-11-21 (black #141414, off-white #F6F3EE, cherry #B3122E, light cherry #F0566B on dark), replacing espresso/terracotta; Bricolage Grotesque + Instrument Serif
 - **Language of the site:** Indonesian
 
 ## Setup: facts
