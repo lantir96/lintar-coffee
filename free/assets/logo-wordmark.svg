@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" role="img" aria-label="Lintar Coffee">
-  <circle cx="60" cy="60" r="56" fill="#1E1410"/>
-  <circle cx="60" cy="60" r="49" fill="none" stroke="#C65A2E" stroke-width="2"/>
-  <path d="M40 30h13v47h30v12H40z" fill="#F4ECE0"/>
-  <g transform="rotate(-35 76 46)"><ellipse cx="76" cy="46" rx="9" ry="13" fill="#C65A2E"/><path d="M76 34c-4 6 4 18 0 24" stroke="#1E1410" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>
-  <text x="136" y="72" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="54" letter-spacing="4" fill="#1E1410">LINTAR</text>
-  <text x="139" y="100" font-family="Arial, sans-serif" font-size="17" letter-spacing="11" fill="#C65A2E">COFFEE</text>
+  <circle cx="60" cy="60" r="56" fill="#141414"/>
+  <circle cx="60" cy="60" r="49" fill="none" stroke="#B3122E" stroke-width="2"/>
+  <path d="M40 30h13v47h30v12H40z" fill="#F6F3EE"/>
+  <g transform="rotate(-35 76 46)"><ellipse cx="76" cy="46" rx="9" ry="13" fill="#B3122E"/><path d="M76 34c-4 6 4 18 0 24" stroke="#141414" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>
+  <text x="136" y="72" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="54" letter-spacing="4" fill="#141414">LINTAR</text>
+  <text x="139" y="100" font-family="Arial, sans-serif" font-size="17" letter-spacing="11" fill="#B3122E">COFFEE</text>
 </svg>
