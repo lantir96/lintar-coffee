@@ -35,14 +35,14 @@ p { margin: 0; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .muted { color: var(--muted); }
 .eyebrow {
-  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  font-size: 1rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--clay); margin-bottom: 1rem;
 }
 :focus-visible { outline: 3px solid var(--clay); outline-offset: 3px; }
 
 .demo-bar {
   background: var(--clay); color: #fff; text-align: center;
-  font-size: 0.8rem; padding: 0.45rem var(--pad); line-height: 1.4;
+  font-size: 1rem; padding: 0.45rem var(--pad); line-height: 1.4;
 }
 
 /* Buttons */
@@ -56,7 +56,7 @@ p { margin: 0; }
 .btn-accent:hover { background: var(--clay-deep); box-shadow: 0 10px 30px -10px rgba(179,18,46, 0.7); }
 .btn-ghost { border: 1.5px solid rgba(246,243,238, 0.6); color: var(--cream); }
 .btn-ghost:hover { background: var(--cream); color: var(--ink); }
-.btn-small { min-height: 44px; padding: 0.5rem 1.15rem; font-size: 0.95rem; }
+.btn-small { min-height: 44px; padding: 0.5rem 1.15rem; font-size: 1rem; }
 .btn-big { font-size: clamp(1.05rem, 2.6vw, 1.35rem); padding: 1.1rem 2.2rem; }
 
 /* Header */
@@ -75,7 +75,7 @@ p { margin: 0; }
 .brand img { width: 40px; height: 40px; transition: transform 0.6s var(--ease); }
 .brand:hover img { transform: rotate(-20deg); }
 .brand-name { font-weight: 800; font-size: 1.2rem; letter-spacing: 0.08em; line-height: 1; display: flex; flex-direction: column; }
-.brand-name small { font-size: 0.6rem; letter-spacing: 0.42em; color: var(--clay); font-weight: 600; margin-top: 3px; }
+.brand-name small { font-size: 1rem; letter-spacing: 0.3em; color: var(--clay); font-weight: 600; margin-top: 3px; }
 .nav { display: flex; gap: 1.8rem; }
 .nav a { text-decoration: none; font-weight: 600; position: relative; padding: 0.4rem 0; }
 .nav a::after {
@@ -146,7 +146,7 @@ p { margin: 0; }
 .ring-img { aspect-ratio: 1; overflow: hidden; }
 .ring-img img { width: 100%; height: 100%; object-fit: cover; }
 .ring-body { padding: 0.9rem 1.1rem 1.1rem; }
-.ring-body small { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(246,243,238,0.55); }
+.ring-body small { font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(246,243,238,0.55); }
 .ring-body h3 { font-size: 1.2rem; margin: 0.25rem 0 0.2rem; letter-spacing: -0.01em; }
 .ring-body p { color: #f0566b; font-weight: 800; }
 .ring-count { display: none; }
@@ -170,7 +170,7 @@ p { margin: 0; }
 }
 .is-3d .ring-card.is-front { opacity: 1; filter: none; border-color: rgba(240,86,107,0.6); box-shadow: 0 30px 60px -25px rgba(179,18,46,0.55); }
 .is-3d .ring-count {
-  display: block; text-align: center; font-size: 0.9rem; letter-spacing: 0.2em; color: rgba(246,243,238,0.6); margin-top: 1rem; font-variant-numeric: tabular-nums;
+  display: block; text-align: center; font-size: 1rem; letter-spacing: 0.2em; color: rgba(246,243,238,0.6); margin-top: 1rem; font-variant-numeric: tabular-nums;
 }
 .is-3d .ring-count b { color: var(--cream); font-size: 1.6rem; letter-spacing: 0; }
 
@@ -185,7 +185,7 @@ p { margin: 0; }
   border: 1.5px solid var(--line); background: transparent; color: var(--ink); cursor: pointer;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
-.tabs button span { font-size: 0.8em; opacity: 0.6; margin-left: 0.15rem; }
+.tabs button span { font-size: 1em; opacity: 0.6; margin-left: 0.15rem; }
 .tabs button:hover { border-color: var(--ink); }
 .tabs button[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: var(--cream); }
 .search input {
@@ -248,14 +248,14 @@ p { margin: 0; }
 .contact .btn-accent:hover { background: #000; box-shadow: 0 16px 40px -14px rgba(0,0,0,0.6); }
 .contact-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 3rem 0 0; width: 100%; text-align: left; }
 .contact-list div { border-top: 1.5px solid rgba(255,255,255,0.4); padding-top: 0.9rem; }
-.contact-list dt { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8; margin-bottom: 0.3rem; }
+.contact-list dt { font-size: 1rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8; margin-bottom: 0.3rem; }
 .contact-list dd { margin: 0; font-weight: 600; }
-.tag { display: inline-block; font-size: 0.78rem; font-weight: 600; background: rgba(20,20,20,0.18); padding: 0.15rem 0.55rem; border-radius: 6px; margin-top: 0.25rem; }
+.tag { display: inline-block; font-size: 1rem; font-weight: 600; background: rgba(20,20,20,0.18); padding: 0.15rem 0.55rem; border-radius: 6px; margin-top: 0.25rem; }
 
 /* Footer */
 .site-footer {
   background: var(--ink); color: rgba(246,243,238,0.75); padding: 2.5rem var(--pad) 6rem;
-  display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between; font-size: 0.95rem;
+  display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between; font-size: 1rem;
 }
 .site-footer img { width: 180px; height: auto; }
 .site-footer a { text-decoration: none; display: inline-block; padding: 0.7rem 0; }

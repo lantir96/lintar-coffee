@@ -39,6 +39,7 @@ Status: **Owner** (confirmed by the owner), **Public** (source found), **Unconfi
 
 ## Free
 
+- **Motion:** approved custom motion (Lintar asked for extra motion on this demo)
 - **Look:** own direction, built fresh (no mockup round: demo for Lintar, asked to build directly). Free tier plus extra motion Lintar asked for: hero line reveal and slow zoom, parallax, marquee, clip-path photo reveals, scroll-lit statement, menu tab stagger and search, magnetic WhatsApp button. All off under reduced motion.
 - **Mockup chosen:** [file] **Notes:** [keep / change]
 - **Images:** 38 photos rebranded by Codex (hero, frontage, outdoor, indoor, cans, samaran, tipan); katsu bowls reused as-is. Logo drawn by Claude (`free/assets/logo-*.svg`).
