@@ -2,6 +2,8 @@
 
 Last updated: 2026-11-21
 
+DEMO PROJECT: demo brand built for Lintar's showcase. Not a real client. Site is noindex; hours are invented.
+
 The brief and every design decision for this client. Work through `CHECKLIST.md` next to this file.
 
 ## Setup: what you know
