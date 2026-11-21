@@ -22,7 +22,7 @@ Status: **Owner** (confirmed by the owner), **Public** (source found), **Unconfi
 | Address, each branch | Mojokerto only; page says perlu konfirmasi | demo | Unconfirmed |
 | Phone, each branch | | | |
 | WhatsApp | 0822-5801-8999 | Lintar, Telegram 2026-11-21 | Owner |
-| Hours | none; page says perlu konfirmasi | demo | Unconfirmed |
+| Hours | Daily 08.00-22.00 (invented for the demo at Lintar's request, 2026-11-22) | demo | Invented |
 | Google rating | | | |
 | Instagram | | | |
 | Current website | | | |
